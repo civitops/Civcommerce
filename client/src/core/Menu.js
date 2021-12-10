@@ -27,7 +27,7 @@ import StoreIcon from '@material-ui/icons/Store';
 
 const isActive = (history, path) => {
   if (history.location.pathname === path) {
-    return { color: '#ff9900', textDecoration: 'none' };
+    return { color: '#1ccbe0', textDecoration: 'none' };
   } else {
     return { color: '#ffffff', textDecoration: 'none' };
   }
@@ -93,6 +93,10 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('md')]: {
       display: 'none',
     },
+  },
+  customHoverFocus:{
+    "&:hover, &.Mui-focusVisible": { backgroundColor: "#010d0f" },
+    borderRadius:"0%",
   },
 }));
 
@@ -272,21 +276,21 @@ const MaterialAppBar = ({ history }) => {
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <Link style={isActive(history, '/')} to='/'>
-              <IconButton aria-label='Home' color='inherit'>
+              <IconButton aria-label='Home' color='inherit' className={classes.customHoverFocus}>
                 <HomeIcon />
                 <Typography noWrap>Home</Typography>
               </IconButton>
             </Link>
 
             <Link style={isActive(history, '/shop')} to='/shop'>
-              <IconButton aria-label='Shop' color='inherit'>
+              <IconButton aria-label='Shop' color='inherit' className={classes.customHoverFocus}>
                 <StorefrontIcon />
                 <Typography noWrap>Shop</Typography>
               </IconButton>
             </Link>
 
             <Link style={isActive(history, '/cart')} to='/cart'>
-              <IconButton aria-label='Cart' color='inherit'>
+              <IconButton aria-label='Cart' color='inherit' className={classes.customHoverFocus}>
                 <Badge badgeContent={itemTotal()} color='secondary'>
                   <ShoppingCartIcon />
                 </Badge>
@@ -299,7 +303,7 @@ const MaterialAppBar = ({ history }) => {
                 style={isActive(history, '/user/dashboard')}
                 to='/user/dashboard'
               >
-                <IconButton aria-label='Dashboard' color='inherit'>
+                <IconButton aria-label='Dashboard' color='inherit' className={classes.customHoverFocus}>
                   <DashboardIcon />
                   <Typography noWrap>Dashboard</Typography>
                 </IconButton>
@@ -311,7 +315,7 @@ const MaterialAppBar = ({ history }) => {
                 style={isActive(history, '/admin/dashboard')}
                 to='/admin/dashboard'
               >
-                <IconButton aria-label='Dashboard' color='inherit'>
+                <IconButton aria-label='Dashboard' color='inherit' className={classes.customHoverFocus}>
                   <DashboardIcon />
                   <Typography noWrap>Dashboard</Typography>
                 </IconButton>
@@ -321,14 +325,14 @@ const MaterialAppBar = ({ history }) => {
             {!isAuthenticated() && (
               <Fragment>
                 <Link style={isActive(history, '/signin')} to='/signin'>
-                  <IconButton aria-label='Signin' color='inherit'>
+                  <IconButton aria-label='Signin' color='inherit' className={classes.customHoverFocus}>
                     <AccountCircleIcon />
                     <Typography noWrap>Signin</Typography>
                   </IconButton>
                 </Link>
 
                 <Link style={isActive(history, '/signup')} to='/signup'>
-                  <IconButton aria-label='Signup' color='inherit'>
+                  <IconButton aria-label='Signup' color='inherit' className={classes.customHoverFocus}>
                     <PersonAddIcon />
                     <Typography noWrap>Signup</Typography>
                   </IconButton>
@@ -345,7 +349,7 @@ const MaterialAppBar = ({ history }) => {
                   })
                 }
               >
-                <IconButton aria-label='Signout' color='inherit'>
+                <IconButton aria-label='Signout' color='inherit' className={classes.customHoverFocus}>
                   <ExitToAppIcon />
                   <Typography noWrap>Signout</Typography>
                 </IconButton>
