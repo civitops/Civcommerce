@@ -70,4 +70,4 @@
     8. admin can view ordered products
     9. admin can change the status of a product (processing, shipped, delivered, etc.)
 
-6. <b>Deployed on</br> ""
+6. <b>Deployed on</br> "https://civcommerce.vercel.app/"
